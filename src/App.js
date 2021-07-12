@@ -1,25 +1,39 @@
 import logo from './logo.svg';
+import React, { Component } from 'react';
+import Users from './components/Users';
+import Userform from './components/Userform';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          users: []
+      }
+  }
+
+  handleAddUser = (newUser) => {
+      this.setState({ 
+          users: [newUser, ...this.state.users] 
+      })
+  }
+
+  render() {
+      const users = this.state.users.map((user, index) => {
+          return (
+              <Users user={user} index={index} />
+          )
+      })
+
+      return (
+          <div style={{ margin: "50px" }}>
+              <Userform addUser={this.handleAddUser} />
+              {users}
+          </div>
+      );
+  }
 }
+
+
 
 export default App;

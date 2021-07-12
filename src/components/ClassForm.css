@@ -1,0 +1,26 @@
+label {
+    font-weight: bold;
+}
+
+form {
+    position:absolute;
+    top:10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: aquamarine;
+    
+    padding: 15px;
+    border-radius: 5%;
+    
+    
+}
+
+input {
+    border: 2px solid;
+    
+}
+
+button {
+    font-weight: bold;
+    background-color: bisque;
+}
